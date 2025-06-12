@@ -46,11 +46,10 @@ const ColorPalette = () => {
                                     p="sm"
                                     key={detail.id}>
                                     <Grid marginY="auto" templateColumns="repeat(3,1fr)" gap="xs" alignItems="center">
-
                                         <Box>
                                             <Text>{detail.time}</Text>
                                         </Box>
-                                        <Box>
+                                        <Box textAlign="left">
                                             <Text marginY="sm" fontSize="lg">
                                                 {detail.genre.genreName}
                                             </Text>

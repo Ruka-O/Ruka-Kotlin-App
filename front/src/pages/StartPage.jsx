@@ -16,7 +16,8 @@ const StartPage = () => {
                         w="100vw"
                         fontSize="9xl"
                         fontWeight="bold"
-                        color="#FF6B6B">
+                        color="#FF6B6B"
+                    >
                         Palette Time
                     </Text>
                     <Button
@@ -24,6 +25,7 @@ const StartPage = () => {
                         variant="solid"
                         size="lg"
                         onClick={() => navigate("/palette")}
+                        fontSize="3xl"
                         color="#2e2e2e"
                     >
                         Start

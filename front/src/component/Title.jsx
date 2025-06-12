@@ -15,8 +15,10 @@ const Title = () => {
                         icon=<HouseIcon boxSize="7xs"/>
                     />
                     <Text
-                        fontSize="5xl"
+                        fontSize="8xl"
                         color="#2e2e2e"
+                        fontFamily="Hannotate SC"
+
                     >
                         Today's color
                     </Text>
