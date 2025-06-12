@@ -34,7 +34,8 @@ values ('TV'),
        ('Youtube'),
        ('Radio'),
        ('Live'),
-       ('Release');
+       ('Release'),
+       ('Another');
 
 INSERT INTO tag (tag_name, color)
 values ('red', '#ff0000'),

@@ -91,6 +91,7 @@ const AddColor = () => {
                                     placeholder="YYYY/MM/DD"
                                     variant="flushed"
                                     defaultValue={new Date()}
+                                    focusBorderColor="#ff6b6b"
                                     onChange={(e) => {
                                         const selectDate = format(e, "yyyy-MM-dd")
                                         setDate(selectDate)

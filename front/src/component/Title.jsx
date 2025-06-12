@@ -1,6 +1,7 @@
 import {Center, HStack, IconButton, Text} from "@yamada-ui/react";
 import {useNavigate} from "react-router";
 import {HouseIcon, PaletteIcon} from "@yamada-ui/lucide";
+import ColorPalette from "./ColorPalette.jsx";
 
 const Title = () => {
     const navigate = useNavigate();
@@ -18,9 +19,8 @@ const Title = () => {
                         fontSize="8xl"
                         color="#2e2e2e"
                         fontFamily="Hannotate SC"
-
                     >
-                        Today's color
+                        My Palette
                     </Text>
                     <IconButton
                         variant="ghost"

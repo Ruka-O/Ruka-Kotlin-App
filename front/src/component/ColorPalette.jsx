@@ -3,16 +3,23 @@ import {Box, Card, Center, Grid, HStack, IconButton, Text, VStack} from "@yamada
 import {ja} from "date-fns/locale";
 import {format} from "date-fns";
 import {EraserIcon} from "@yamada-ui/lucide"
+import {DatePicker} from "@yamada-ui/calendar";
 
 const ColorPalette = () => {
 
     const [details, setDetails] = useState([])
-    const today = format(new Date(), 'yyyy-MM-dd', {locale: ja});
-    // const today = "2025-06-13"
+    const [nothing, setNothing] = useState(true);
+    const [date, setDate] = useState(format(new Date(), 'yyyy-MM-dd', {locale: ja}))
 
     const getDetail = async () => {
-        const response = await fetch(`/api/detail/${today}`).then(res => res.json());
-        setDetails(response);
+        const response = await fetch(`/api/detail/${date}`).then(res => res.json());
+        if (response.length === 0) {
+            setNothing(true);
+            setDetails(response);
+        } else {
+            setNothing(false);
+            setDetails(response);
+        }
     }
 
     useEffect(() => {
@@ -33,7 +40,24 @@ const ColorPalette = () => {
         <>
             <Center>
                 <VStack alignItems="center" gap="lg" margin="lg" w="100vw">
-                    {details === [] ? <></>
+                    <DatePicker
+                        variant="flushed"
+                        defaultValue={new Date()}
+                        w="30vw"
+                        fontSize="2xl"
+                        focusBorderColor="#ff6b6b"
+                        onChange={async (e) => {
+                            const selectDate = format(e, "yyyy-MM-dd")
+                            setDate(selectDate)
+                            await getDetail()
+                        }}
+                    />
+                    {nothing ?
+                        <Text fontSize="4xl">
+                            No color...
+                            <br/>
+                            Let's painting!
+                        </Text>
                         : details.map(detail => {
                             return (
                                 <Card
@@ -45,11 +69,12 @@ const ColorPalette = () => {
                                     // h="4xs"
                                     p="sm"
                                     key={detail.id}>
-                                    <Grid marginY="auto" templateColumns="repeat(3,1fr)" gap="xs" alignItems="center">
+                                    <Grid marginY="auto" templateColumns="repeat(3,1fr)" gap="xs"
+                                          alignItems="center">
                                         <Box>
                                             <Text>{detail.time}</Text>
                                         </Box>
-                                        <Box textAlign="left">
+                                        <Box textAlign="left" w="xl">
                                             <Text marginY="sm" fontSize="lg">
                                                 {detail.genre.genreName}
                                             </Text>
