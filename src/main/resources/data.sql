@@ -1,4 +1,7 @@
 delete
+from details;
+
+delete
 from tag;
 
 delete
@@ -14,10 +17,10 @@ values ('TV'),
 
 INSERT INTO tag (tag_name, color)
 values ('yama', '#ff0000'),
-       ('chine', '#ff3366'),
+       ('chine', '#ff66b8'),
        ('yuto', '#66ccff'),
-       ('ari', '#ed6d35'),
+       ('ari', '#ff8c1a'),
        ('ino', '#007bbb'),
        ('taka', '#9932cc'),
        ('hika', '#ffd900'),
-       ('yabu', '#39cbb1c');
+       ('yabu', '#9cbb1c');
