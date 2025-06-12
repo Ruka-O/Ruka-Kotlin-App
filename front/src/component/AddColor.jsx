@@ -71,128 +71,135 @@ const AddColor = () => {
 
     return (
         <>
-            <VStack marginY="sm">
+            <VStack marginY="sm" w="40vw">
                 {fail ?
                     <Text color="red">
                         Lack of data
                     </Text>
                     :
                     <></>}
-                <Center>
-                    <Card
-                        variant="outline"
-                        padding="lg"
-                        w="50vw"
+                <Card
+                    variant="outline"
+                    marginX="sm"
+                    w="50vw"
+                >
+                    <Container
+                        paddingY="md"
+                        maxWidth="false"
                     >
-                        <Container paddingY="md">
-                            <Text textAlign="left" margin="0" padding="0" fontSize="md">Date</Text>
-                            <HStack gap="md">
-                                <DatePicker
-                                    placeholder="YYYY/MM/DD"
-                                    variant="flushed"
-                                    defaultValue={new Date()}
-                                    focusBorderColor="#ff6b6b"
-                                    onChange={(e) => {
-                                        const selectDate = format(e, "yyyy-MM-dd")
-                                        setDate(selectDate)
-                                    }}
-                                />
-                                <Select
-                                    placeholder="--"
-                                    variant={"flushed"}
-                                    placeholderInOptions={false}
-                                    onChange={setHourTime}
-                                    width="sm"
-                                    focusBorderColor="#ff6b6b"
-                                >
-                                    {hour.map((ele) => {
-                                        return (
-                                            <Option key={ele} value={ele}>{ele}</Option>
-                                        )
-                                    })}
-                                </Select>
-                                <Text> : </Text>
-                                <Select
-                                    placeholder="--"
-                                    variant={"flushed"}
-                                    placeholderInOptions={false}
-                                    onChange={setMinutesTime}
-                                    focusBorderColor="#ff6b6b"
-                                    width="sm"
-                                >
-                                    {minutes.map(ele => {
-                                        return (
-                                            <Option key={ele} value={ele}>{ele}</Option>
-                                        )
-                                    })}
-                                </Select>
-                            </HStack>
-                        </Container>
-                        <Container paddingY="md">
-                            <Text textAlign="left" margin="0" padding="0" fontSize="md">Color</Text>
-                            <HStack gap="xl">
-                                <Select
-                                    placeholder="select genre"
-                                    variant={"flushed"}
-                                    placeholderInOptions={false}
-                                    focusBorderColor="#ff6b6b"
-                                    onChange={setGenre}
-                                >
-                                    {genres.map((ele) => {
-                                        return (
-                                            <Option key={ele.id} value={ele.genreName}>{ele.genreName}</Option>
-                                        )
-                                    })}
-                                </Select>
-                                <Select
-                                    placeholder="select tag"
-                                    variant={"flushed"}
-                                    placeholderInOptions={false}
-                                    focusBorderColor="#ff6b6b"
-                                    onChange={setTag}
-                                >
-                                    {tags.map((ele) => {
-                                        return (
-                                            <Option key={ele.id} value={ele.tagName}>
-                                                <ColorSwatch variant="rounded" color={ele.color}/></Option>
-                                        )
-                                    })}
-                                </Select>
-                            </HStack>
-                        </Container>
-                        <Container paddingY="md">
-                            <Text textAlign="left" margin="0" padding="0" fontSize="md">
-                                Detail
-                            </Text>
-                            <Textarea
-                                type="text"
-                                textAlign="left"
+                        <Text textAlign="left" margin="0" padding="0" fontSize="md">Date</Text>
+
+                        <HStack gap="md">
+                            <DatePicker
+                                variant="flushed"
+                                defaultValue={new Date()}
+                                // w="xs"
                                 focusBorderColor="#ff6b6b"
-                                onChange={(e) => setDetail(e.target.value)}
+                                onChange={(e) => {
+                                    const selectDate = format(e, "yyyy-MM-dd")
+                                    setDate(selectDate)
+                                }}
                             />
-                        </Container>
-                        <Container paddingY="md">
-                            <HStack marginY="md">
-                                <Button
-                                    size="lg"
-                                    onClick={() => navigate("/palette")}
-                                >
-                                    Cancel
-                                </Button>
-                                <Spacer/>
-                                <Button
-                                    bg="#ff6B6B"
-                                    variant="solid"
-                                    size="lg"
-                                    color="#2e2e2e"
-                                    onClick={postRequest}
-                                >
-                                    New Colors
-                                </Button>
-                            </HStack>
-                        </Container>
-                    </Card>
-                </Center>
+                            <Select
+                                placeholder="--"
+                                variant={"flushed"}
+                                placeholderInOptions={false}
+                                onChange={setHourTime}
+                                // width="4xs"
+                                focusBorderColor="#ff6b6b"
+                            >
+                                {hour.map((ele) => {
+                                    return (
+                                        <Option key={ele} value={ele}>{ele}</Option>
+                                    )
+                                })}
+                            </Select>
+                            <Text> : </Text>
+                            <Select
+                                placeholder="--"
+                                variant={"flushed"}
+                                placeholderInOptions={false}
+                                onChange={setMinutesTime}
+                                focusBorderColor="#ff6b6b"
+                                // width="4xs"
+                            >
+                                {minutes.map(ele => {
+                                    return (
+                                        <Option key={ele} value={ele}>{ele}</Option>
+                                    )
+                                })}
+                            </Select>
+                        </HStack>
+                    </Container>
+                    <Container paddingY="md"
+                    >
+                        <Text textAlign="left" margin="0" padding="0" fontSize="md">Color</Text>
+                        <HStack>
+                            <Select
+                                placeholder="select genre"
+                                variant={"flushed"}
+                                placeholderInOptions={false}
+                                focusBorderColor="#ff6b6b"
+                                onChange={setGenre}
+                                // width="xs"
+                            >
+                                {genres.map((ele) => {
+                                    return (
+                                        <Option key={ele.id} value={ele.genreName}>{ele.genreName}</Option>
+                                    )
+                                })}
+                            </Select>
+                            <Select
+                                placeholder="select tag"
+                                variant={"flushed"}
+                                placeholderInOptions={false}
+                                focusBorderColor="#ff6b6b"
+                                onChange={setTag}
+                                // width="xs"
+
+                            >
+                                {tags.map((ele) => {
+                                    return (
+                                        <Option key={ele.id} value={ele.tagName}>
+                                            <ColorSwatch variant="rounded" color={ele.color}/></Option>
+                                    )
+                                })}
+                            </Select>
+                        </HStack>
+                    </Container>
+                    <Container paddingY="md">
+                        <Text textAlign="left" margin="0" padding="0" fontSize="md">
+                            Detail
+                        </Text>
+                        <Textarea
+                            type="text"
+                            textAlign="left"
+                            focusBorderColor="#ff6b6b"
+                            // width="xl"
+                            onChange={(e) => setDetail(e.target.value)}
+                        />
+                    </Container>
+                    <Container paddingY="md">
+                        <HStack marginY="md">
+                            <Button
+                                size="lg"
+                                onClick={() => navigate("/palette")}
+                            >
+                                Cancel
+                            </Button>
+                            <Spacer/>
+                            <Button
+                                bg="#ff6B6B"
+                                variant="solid"
+                                size="lg"
+                                color="#2e2e2e"
+                                onClick={postRequest}
+                            >
+                                New Colors
+                            </Button>
+                        </HStack>
+                    </Container>
+                </Card>
             </VStack>
         </>
     )

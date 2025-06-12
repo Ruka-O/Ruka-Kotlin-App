@@ -38,65 +38,66 @@ const ColorPalette = () => {
 
     return (
         <>
-            <Center>
-                <VStack alignItems="center" gap="lg" margin="lg" w="100vw">
-                    <DatePicker
-                        variant="flushed"
-                        defaultValue={new Date()}
-                        w="30vw"
-                        fontSize="2xl"
-                        focusBorderColor="#ff6b6b"
-                        onChange={async (e) => {
-                            const selectDate = format(e, "yyyy-MM-dd")
-                            setDate(selectDate)
-                            await getDetail()
-                        }}
-                    />
-                    {nothing ?
-                        <Text fontSize="4xl">
-                            No color...
-                            <br/>
-                            Let's painting!
-                        </Text>
-                        : details.map(detail => {
-                            return (
-                                <Card
-                                    bg="#fffefc"
-                                    variant="outline"
-                                    borderWidth="0.2vw"
-                                    borderColor={detail.tag.color}
-                                    w="45vw"
-                                    // h="4xs"
-                                    p="sm"
-                                    key={detail.id}>
-                                    <Grid marginY="auto" templateColumns="repeat(3,1fr)" gap="xs"
-                                          alignItems="center">
-                                        <Box>
-                                            <Text>{detail.time}</Text>
-                                        </Box>
-                                        <Box textAlign="left" w="xl">
-                                            <Text marginY="sm" fontSize="lg">
-                                                {detail.genre.genreName}
-                                            </Text>
-                                            <Text marginY="sm" fontSize="xl">
-                                                {detail.detail}
-                                            </Text>
-                                        </Box>
-                                        <Box marginLeft="auto">
-                                            <IconButton
-                                                marginRight="md"
-                                                variant="ghost"
-                                                color="#FF6B6B"
-                                                onClick={() => postDelete(detail.id)}
-                                                icon=<EraserIcon boxSize="12xs"/>
-                                            />
-                                        </Box>
-                                    </Grid>
-                                </Card>
-                            )
-                        })}
-                </VStack>
-            </Center>
+            <VStack
+                alignItems="center"
+                h="70vh"
+                gap="lg" w="50vw">
+                <DatePicker
+                    variant="flushed"
+                    defaultValue={new Date()}
+                    w="30vw"
+                    fontSize="2xl"
+                    focusBorderColor="#ff6b6b"
+                    onChange={async (e) => {
+                        const selectDate = format(e, "yyyy-MM-dd")
+                        setDate(selectDate)
+                        await getDetail()
+                    }}
+                />
+                {nothing ?
+                    <Text fontSize="4xl">
+                        No color...
+                        <br/>
+                        Let's painting!
+                    </Text>
+                    : details.map(detail => {
+                        return (
+                            <Card
+                                bg="#fffefc"
+                                variant="outline"
+                                borderWidth="0.2vw"
+                                borderColor={detail.tag.color}
+                                w="45vw"
+                                // h="4xs"
+                                p="sm"
+                                key={detail.id}>
+                                <Grid marginY="auto" templateColumns="repeat(3,1fr)" gap="md"
+                                      alignItems="center">
+                                    <Box>
+                                        <Text>{detail.time}</Text>
+                                    </Box>
+                                    <Box textAlign="left" w="md">
+                                        <Text marginY="sm" fontSize="lg">
+                                            {detail.genre.genreName}
+                                        </Text>
+                                        <Text marginY="sm" fontSize="xl">
+                                            {detail.detail}
+                                        </Text>
+                                    </Box>
+                                    <Box marginLeft="auto">
+                                        <IconButton
+                                            marginRight="md"
+                                            variant="ghost"
+                                            color="#FF6B6B"
+                                            onClick={() => postDelete(detail.id)}
+                                            icon=<EraserIcon boxSize="12xs"/>
+                                        />
+                                    </Box>
+                                </Grid>
+                            </Card>
+                        )
+                    })}
+            </VStack>
         </>
     )
 }
