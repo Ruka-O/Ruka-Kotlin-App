@@ -3,6 +3,7 @@ import {
     Button,
     Card,
     Center,
+    ColorSwatch,
     Container,
     HStack,
     Option,
@@ -151,7 +152,8 @@ const AddColor = () => {
                                 >
                                     {tags.map((ele) => {
                                         return (
-                                            <Option key={ele.id} value={ele.tagName}>{ele.tagName}</Option>
+                                            <Option key={ele.id} value={ele.tagName}>
+                                                <ColorSwatch variant="rounded" color={ele.color}/></Option>
                                         )
                                     })}
                                 </Select>
