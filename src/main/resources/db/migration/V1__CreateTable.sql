@@ -37,12 +37,12 @@ values ('TV'),
        ('Release');
 
 INSERT INTO tag (tag_name, color)
-values ('yama', '#ff0000'),
-       ('chine', '#ff66b8'),
-       ('yuto', '#66ccff'),
-       ('ari', '#ff8c1a'),
-       ('ino', '#007bbb'),
-       ('taka', '#9932cc'),
-       ('hika', '#ffd900'),
-       ('yabu', '#9cbb1c');
+values ('red', '#ff0000'),
+       ('pink', '#ff66b8'),
+       ('skyblue', '#66ccff'),
+       ('orange', '#ff8c1a'),
+       ('blue', '#007bbb'),
+       ('purple', '#9932cc'),
+       ('yellow', '#ffd900'),
+       ('yellowgreen', '#9cbb1c');
 
