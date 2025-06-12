@@ -1,18 +1,14 @@
 package com.example.schedule
 
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.assertj.core.api.Assertions.assertThat
 import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.Matcher
 import org.hamcrest.MatcherAssert.assertThat
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.boot.test.web.server.LocalServerPort
 import org.springframework.http.HttpStatus
-import org.springframework.test.context.ActiveProfiles
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ScheduleApplicationTests(
@@ -59,7 +55,7 @@ class ScheduleApplicationTests(
     @Test
     fun `POSTリクエストはOKステータスを返す`() {
 
-        val request = DetailRequest(5, 8, "hello", "2025-06-22", "18:00")
+        val request = DetailRequest(1, 1, "hello", "2025-06-22", "18:00")
         val response = restTemplate.postForEntity("http://localhost:$port/api/detail", request, String::class.java)
         assertThat(response.statusCode).isEqualTo(HttpStatus.OK)
     }
