@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import {Box, Card, Center, Grid, HStack, IconButton, ScrollArea, Text, VStack} from "@yamada-ui/react";
+import {Box, Card, Grid, IconButton, ScrollArea, Text, VStack} from "@yamada-ui/react";
 import {ja} from "date-fns/locale";
 import {format} from "date-fns";
-import {EraserIcon, Scroll} from "@yamada-ui/lucide"
+import {EraserIcon} from "@yamada-ui/lucide"
 import {DatePicker} from "@yamada-ui/calendar";
 
 const ColorPalette = () => {

@@ -1,4 +1,4 @@
-import {Box, Button, Card, Text, VStack} from "@yamada-ui/react";
+import {Button, Card, Text, VStack} from "@yamada-ui/react";
 import {HouseIcon, PaletteIcon, PaintbrushIcon} from "@yamada-ui/lucide";
 import {useNavigate} from "react-router";
 
@@ -7,7 +7,6 @@ const Menu = (props) => {
     return (
         <>
             <Card w="25vw" h="md" marginX="md" padding="md" variant="outline" borderColor="#ff6b6b">
-
                 <VStack>
                     <Text
                         fontSize="2xl"

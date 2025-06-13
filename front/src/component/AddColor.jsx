@@ -2,7 +2,6 @@ import {DatePicker} from "@yamada-ui/calendar";
 import {
     Button,
     Card,
-    Center,
     ColorSwatch,
     Container,
     HStack,
@@ -88,12 +87,10 @@ const AddColor = () => {
                         maxWidth="false"
                     >
                         <Text textAlign="left" margin="0" padding="0" fontSize="md">Date</Text>
-
                         <HStack gap="md">
                             <DatePicker
                                 variant="flushed"
                                 defaultValue={new Date()}
-                                // w="xs"
                                 focusBorderColor="#ff6b6b"
                                 onChange={(e) => {
                                     const selectDate = format(e, "yyyy-MM-dd")
@@ -105,7 +102,6 @@ const AddColor = () => {
                                 variant={"flushed"}
                                 placeholderInOptions={false}
                                 onChange={setHourTime}
-                                // width="4xs"
                                 focusBorderColor="#ff6b6b"
                             >
                                 {hour.map((ele) => {
@@ -121,7 +117,6 @@ const AddColor = () => {
                                 placeholderInOptions={false}
                                 onChange={setMinutesTime}
                                 focusBorderColor="#ff6b6b"
-                                // width="4xs"
                             >
                                 {minutes.map(ele => {
                                     return (
@@ -131,8 +126,7 @@ const AddColor = () => {
                             </Select>
                         </HStack>
                     </Container>
-                    <Container paddingY="md"
-                    >
+                    <Container paddingY="md">
                         <Text textAlign="left" margin="0" padding="0" fontSize="md">Color</Text>
                         <HStack>
                             <Select
@@ -141,7 +135,6 @@ const AddColor = () => {
                                 placeholderInOptions={false}
                                 focusBorderColor="#ff6b6b"
                                 onChange={setGenre}
-                                // width="xs"
                             >
                                 {genres.map((ele) => {
                                     return (
@@ -155,8 +148,6 @@ const AddColor = () => {
                                 placeholderInOptions={false}
                                 focusBorderColor="#ff6b6b"
                                 onChange={setTag}
-                                // width="xs"
-
                             >
                                 {tags.map((ele) => {
                                     return (
@@ -175,7 +166,6 @@ const AddColor = () => {
                             type="text"
                             textAlign="left"
                             focusBorderColor="#ff6b6b"
-                            // width="xl"
                             onChange={(e) => setDetail(e.target.value)}
                         />
                     </Container>
