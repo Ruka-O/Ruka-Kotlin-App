@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import {Box, Card, Center, Grid, HStack, IconButton, Text, VStack} from "@yamada-ui/react";
+import {Box, Card, Center, Grid, HStack, IconButton, ScrollArea, Text, VStack} from "@yamada-ui/react";
 import {ja} from "date-fns/locale";
 import {format} from "date-fns";
-import {EraserIcon} from "@yamada-ui/lucide"
+import {EraserIcon, Scroll} from "@yamada-ui/lucide"
 import {DatePicker} from "@yamada-ui/calendar";
 
 const ColorPalette = () => {
@@ -41,11 +41,13 @@ const ColorPalette = () => {
             <VStack
                 alignItems="center"
                 h="70vh"
-                gap="lg" w="50vw">
+                w="50vw">
+                <></>
                 <DatePicker
                     variant="flushed"
                     defaultValue={new Date()}
                     w="30vw"
+                    marginBottom="md"
                     fontSize="2xl"
                     focusBorderColor="#ff6b6b"
                     onChange={async (e) => {
@@ -54,51 +56,57 @@ const ColorPalette = () => {
                         await getDetail()
                     }}
                 />
-                {nothing ?
-                    <Text fontSize="4xl">
-                        No color...
-                        <br/>
-                        Let's painting!
-                    </Text>
-                    : details.map(detail => {
-                        return (
-                            <Card
-                                bg="#fffefc"
-                                variant="outline"
-                                borderWidth="0.2vw"
-                                borderColor={detail.tag.color}
-                                w="45vw"
-                                // h="4xs"
-                                p="sm"
-                                key={detail.id}>
-                                <Grid marginY="auto" templateColumns="repeat(3,1fr)" gap="md"
-                                      alignItems="center">
-                                    <Box>
-                                        <Text>{detail.time}</Text>
-                                    </Box>
-                                    <Box textAlign="left" w="md">
-                                        <Text marginY="sm" fontSize="lg">
-                                            {detail.genre.genreName}
-                                        </Text>
-                                        <Text marginY="sm" fontSize="xl">
-                                            {detail.detail}
-                                        </Text>
-                                    </Box>
-                                    <Box marginLeft="auto">
-                                        <IconButton
-                                            marginRight="md"
-                                            variant="ghost"
-                                            color="#FF6B6B"
-                                            onClick={() => postDelete(detail.id)}
-                                            icon=<EraserIcon boxSize="12xs"/>
-                                        />
-                                    </Box>
-                                </Grid>
-                            </Card>
-                        )
-                    })}
+                <ScrollArea h="70vh" type="never"
+                            innerProps={{as: VStack}}
+                >
+                    {nothing ?
+                        <Text fontSize="4xl">
+                            No color...
+                            <br/>
+                            Let's painting!
+                        </Text>
+                        : details.map(detail => {
+                            return (
+                                <Card
+                                    bg="#fffefc"
+                                    variant="outline"
+                                    borderWidth="0.2vw"
+                                    borderColor={detail.tag.color}
+                                    w="45vw"
+                                    // h="4xs"
+                                    p="sm"
+                                    key={detail.id}>
+                                    <Grid marginY="auto" templateColumns="repeat(3,1fr)" gap="md"
+                                          alignItems="center">
+                                        <Box>
+                                            <Text>{detail.time}</Text>
+                                        </Box>
+                                        <Box textAlign="left" w="md">
+                                            <Text marginY="sm" fontSize="lg">
+                                                {detail.genre.genreName}
+                                            </Text>
+                                            <Text marginY="sm" fontSize="xl">
+                                                {detail.detail}
+                                            </Text>
+                                        </Box>
+                                        <Box marginLeft="auto">
+                                            <IconButton
+                                                marginRight="md"
+                                                variant="ghost"
+                                                color="#FF6B6B"
+                                                onClick={() => postDelete(detail.id)}
+                                                icon=<EraserIcon boxSize="12xs"/>
+                                            />
+                                        </Box>
+                                    </Grid>
+                                </Card>
+                            )
+                        })}
+                </ScrollArea>
             </VStack>
+            {/*</Box>*/}
         </>
+
     )
 }
 export default ColorPalette;

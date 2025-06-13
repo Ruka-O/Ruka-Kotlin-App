@@ -71,7 +71,7 @@ const AddColor = () => {
 
     return (
         <>
-            <VStack marginY="sm" w="40vw">
+            <VStack marginY="sm" w="40vw" h="70vh">
                 {fail ?
                     <Text color="red">
                         Lack of data

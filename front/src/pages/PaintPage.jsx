@@ -7,15 +7,15 @@ const PaintPage = () => {
     const url = "/palette";
     return (
         <>
-            <Container h="4xs" padding="0">
-
+            <Box marginY="xl" h="4xs">
                 <Text
                     padding="0"
                     color="#2e2e2e"
-                    fontSize="7xl">
-                    Add a color
+                    fontSize="8xl">
+                    Add color
                 </Text>
-            </Container>
+            </Box>
+
             <HStack>
                 <Box maxWidth="false" sx={{flex: 1}}>
                     <Menu text={text} url={url}/>

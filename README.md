@@ -38,21 +38,3 @@
 
 * PostgreSQL
 
-## Setup
-
-1. データベースの作成
-    * scheduleというデータベースをPostgreSQLに作成
-2. リポジトリをローカル環境にクローン
-
-```bash
-git clone git@github.com:Ruka-O/Ruka-Kotlin-App.git
-```
-
-3. frontディレクトリでフロントエンドのライブラリをインストール
-
-```bash
-cd front
-npm install
-```
-
-4. バックエンドの中に環境設定のためのapplocation.propertiesを作成
