@@ -6,7 +6,8 @@ const Menu = (props) => {
     const navigate = useNavigate();
     return (
         <>
-            <Card w="25vw" h="md" marginX="md" padding="md" variant="outline" borderColor="#ff6b6b">
+            <Card w="25vw" h="md" marginX="md" padding="md" variant="outline" borderColor="#ff6b6b" borderWidth="0.1vw"
+                  bg="#fffefc">
                 <VStack>
                     <Text
                         fontSize="2xl"
